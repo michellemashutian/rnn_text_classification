@@ -35,7 +35,7 @@ class BiRNN(object):
 		with tf.name_scope('bw_rnn'), tf.variable_scope('bw_rnn'):
 			print tf.get_variable_scope().name
 			lstm_bw_cell_list = [tf.contrib.rnn.LSTMCell(rnn_size) for _ in xrange(layer_size)]
-			lstm_bw_cell_m = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(lstm_fw_cell_list), output_keep_prob=self.output_keep_prob)
+			lstm_bw_cell_m = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(lstm_bw_cell_list), output_keep_prob=self.output_keep_prob)
 
 
 		with tf.device('/cpu:0'):
